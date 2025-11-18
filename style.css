@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(237, 241, 248, 0.836);
+}
+
+h1 {
+    color: rgb(18, 18, 89);
+    letter-spacing: 2px;
+    font-size: 2.1rem;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.grocery-list-box > div:first-of-type {
+    margin-top: -3.75em;
+}
+
+.grocery-list-box > div {
+    display: flex;
+    width: 90%;          
+    justify-content: center;        
+}
+
+.grocery-list-box > div input {
+    flex: 1;           
+    padding: 0.5em 0.94em;
+    border: 3px solid rgb(56, 112, 210);
+    border-radius: 5px;
+}
+
+.grocery-list-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 43.8em;
+    height: 31.2em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#grocery-list {
+    margin-top: -60px;
+    width: 90%;          
+    padding: 0;         
+}
+
+#grocery-list li {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 0.94em;              
+    border-bottom: 1px solid #ddd;  
+    list-style: none;              
+    font-size: 1.2rem;
+}
+
+.icons {
+    display: flex;
+    gap: 0.625em; 
+    cursor: pointer;
+}
+
+.icon-edit {
+    color: rgb(24, 115, 24);
+}
+
+.icon-delete {
+    color: rgb(202, 8, 8);
+}
+
+input {
+    padding: 0.5em 0;
+    border: 3px solid rgb(56, 112, 210);
+    border-radius: 5px;
+    outline: none;
+}
+
+#btn-add {
+    padding: 0.4em 0.94em;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    background-color: rgb(183, 225, 241);
+    cursor: pointer;
+}
+
+#btn-clear {
+    margin-bottom: -2.5em;
+    padding: 0.5em 1.25em;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(255, 103, 103);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .grocery-list-box {
+        width: 80%;
+        height: 70%;
+    }
+}
