@@ -1,3 +1,7 @@
+/* -------------------------------------- */
+/* BASIC SETUP */
+/* -------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,68 +13,99 @@ body {
     background-color: rgba(237, 241, 248, 0.836);
 }
 
+/* -------------------------------------- */
+/* HEADING */
+/* -------------------------------------- */
+
 h1 {
     color: rgb(18, 18, 89);
     letter-spacing: 2px;
-    font-size: 2.1rem;
+    font-size: clamp(1.5rem, 5vw, 2.1rem);
     text-align: center;
+    margin-bottom: 1em;
 }
+
+/* -------------------------------------- */
+/* CONTAINER */
+/* -------------------------------------- */
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    padding: 2em 1em;
+    min-height: 90vh;
 }
 
-.grocery-list-box > div:first-of-type {
-    margin-top: -3.75em;
-}
-
-.grocery-list-box > div {
-    display: flex;
-    width: 90%;          
-    justify-content: center;        
-}
-
-.grocery-list-box > div input {
-    flex: 1;           
-    padding: 0.5em 0.94em;
-    border: 3px solid rgb(56, 112, 210);
-    border-radius: 5px;
-}
+/* -------------------------------------- */
+/* GROCERY LIST BOX */
+/* -------------------------------------- */
 
 .grocery-list-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    width: 43.8em;
-    height: 31.2em;
+    width: 90%;
+    max-width: 600px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 1.5em;
 }
 
+/* -------------------------------------- */
+/* INPUT & BUTTON CONTAINER */
+/* -------------------------------------- */
+
+.grocery-list-box > div:first-of-type {
+    display: flex;
+    width: 100%;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+.grocery-list-box > div:first-of-type input {
+    flex: 1;
+    padding: 0.5em 0.75em;
+    border: 2px solid rgb(56, 112, 210);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#btn-add {
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(183, 225, 241);
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* -------------------------------------- */
+/* GROCERY LIST ITEMS */
+/* -------------------------------------- */
+
 #grocery-list {
-    margin-top: -60px;
-    width: 90%;          
-    padding: 0;         
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1em 0;
 }
 
 #grocery-list li {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;            
-    padding: 0.94em;              
-    border-bottom: 1px solid #ddd;  
-    list-style: none;              
-    font-size: 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75em 1em;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
 }
 
 .icons {
     display: flex;
-    gap: 0.625em; 
+    gap: 0.5em;
     cursor: pointer;
 }
 
@@ -82,25 +117,11 @@ h1 {
     color: rgb(202, 8, 8);
 }
 
-input {
-    padding: 0.5em 0;
-    border: 3px solid rgb(56, 112, 210);
-    border-radius: 5px;
-    outline: none;
-}
-
-#btn-add {
-    padding: 0.4em 0.94em;
-    border: 0;
-    border-radius: 5px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    background-color: rgb(183, 225, 241);
-    cursor: pointer;
-}
+/* -------------------------------------- */
+/* CLEAR BUTTON */
+/* -------------------------------------- */
 
 #btn-clear {
-    margin-bottom: -2.5em;
     padding: 0.5em 1.25em;
     border: none;
     border-radius: 6px;
@@ -108,11 +129,36 @@ input {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    align-self: center;
 }
 
-@media (max-width: 600px) {
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
     .grocery-list-box {
-        width: 80%;
-        height: 70%;
+        padding: 1em;
+    }
+
+    #btn-add {
+        padding: 0.4em 0.75em;
+    }
+
+    #btn-clear {
+        padding: 0.4em 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: clamp(1.2rem, 6vw, 1.8rem);
+    }
+
+    .grocery-list-box > div:first-of-type {
+        flex-direction: column;
+    }
+
+    #btn-add {
+        width: 100%;
+        margin-top: 0.5em;
     }
 }
