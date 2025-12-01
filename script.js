@@ -8,48 +8,45 @@ addButton.addEventListener('click', () => {
     if (value === "") return;
 
     const li = document.createElement('li');
-    // Span for icons class
-    const iconSpan = document.createElement('span');
-    iconSpan.classList.add('icons');
-    // Edit icon class
+    const span = document.createElement('span');
     const editIcon = document.createElement('ion-icon');
-    editIcon.setAttribute('name', 'create-outline');
-    editIcon.classList.add('icon-edit')
-    // Delete icon class
     const deleteIcon = document.createElement('ion-icon');
+
+    editIcon.setAttribute('name', 'create-outline');
     deleteIcon.setAttribute('name', 'trash-bin');
+
+    editIcon.classList.add('icon-edit');
     deleteIcon.classList.add('icon-delete');
-    // Append icons to the span tag
-    iconSpan.appendChild(editIcon);
-    iconSpan.appendChild(deleteIcon);
 
     li.textContent = value;
-    
-    li.appendChild(iconSpan);
-    document.getElementById('grocery-list').appendChild(li);
 
-    textField.value = '';
+    span.appendChild(editIcon);
+    span.appendChild(deleteIcon);
+    li.appendChild(span);
+    itemsList.appendChild(li);
+
+    textField.value = " ";
 });
 
-clearButton.addEventListener('click', (li) => {
-    itemsList.innerHTML = '';
-});
+itemsList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('icon-edit')) {
+        const li = e.target.closest('li');
+        if (li) {
+            const newValue = prompt("Edit item:", li.textContent.trim());
+            if (newValue) {
+                li.textContent = newValue;
+            }
+        }
+    }
 
-itemsList.addEventListener('click', (event) => {
-    if (event.target.classList.contains('icon-delete')) {
-        const li = event.target.closest('li');
+    if (e.target.classList.contains('icon-delete')) {
+        const li = e.target.closest('li');
         if (li) {
             li.remove();
         }
     }
+});
 
-    if (event.target.classList.contains('icon-edit')) {
-    const li = event.target.closest('li');
-        if (li) {
-            const newValue = prompt("Edit item:", li.firstChild.textContent.trim());
-            if (newValue) {
-                li.firstChild.textContent = newValue + " ";
-            }
-        }
-    }
+clearButton.addEventListener('click', () => {
+    itemsList.innerHTML = "";
 });
