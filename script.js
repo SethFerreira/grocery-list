@@ -32,9 +32,9 @@ itemsList.addEventListener('click', (e) => {
     if (e.target.classList.contains('icon-edit')) {
         const li = e.target.closest('li');
         if (li) {
-            const newValue = prompt("Edit item:", li.textContent.trim());
+            const newValue = prompt("Edit item:", li.firstChild.textContent.trim());
             if (newValue) {
-                li.textContent = newValue;
+                li.firstChild.textContent = newValue;
             }
         }
     }
